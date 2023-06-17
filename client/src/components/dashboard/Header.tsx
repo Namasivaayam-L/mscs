@@ -16,7 +16,7 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const { onDrawerToggle } = props;
-  const [value, setValue] = React.useState('State Wise')
+  const [value, setValue] = React.useState('stateWise')
   return (
     <React.Fragment>
       <AppBar color="primary" position="sticky" elevation={0}>
@@ -33,19 +33,19 @@ export default function Header(props: HeaderProps) {
       {/* <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 1 }}> */}
         <TabContext value={value}>
           <TabList textColor="inherit" onChange={(e: any, newValue: string) => setValue(newValue)}>
-              <Tab value="State Wise" label="State Wise" />
-              <Tab value="Year Wise" label="Year Wise" />
-              <Tab value="Type Wise" label="Type Wise" />
+              <Tab value="stateWise" label="State Wise" />
+              <Tab value="typeWise" label="Type Wise" />
+              <Tab value="yearWise" label="Year Wise" />
           </TabList>
-          <TabPanel value="State Wise">
+          <TabPanel value="stateWise">
               <ChartWrapper value={value} prompt={'This represent the data in State - Wise'}/>
           </TabPanel>
-          <TabPanel value="Year Wise">
+          <TabPanel value="yearWise">
               <ChartWrapper value={value} prompt={'This represent the data in Year - Wise'}/>
           </TabPanel>
-          <TabPanel value="Type Wise">
+          <TabPanel value="typeWise">
               <ChartWrapper value={value} prompt={'This represent the data in Type - Wise'}/>
-          </TabPanel>
+          </TabPanel> 
         </TabContext>
       </AppBar>
     </React.Fragment>

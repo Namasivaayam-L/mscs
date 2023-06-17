@@ -7,6 +7,7 @@ import { PORT } from './config/config'
 import authUser from './routes/authUser'
 import authMiddleware from './middleware/authMiddleware'
 import getSocietyData from './utils/getSocietyData'
+import getChartData from './utils/getChartData'
 import connToDB from './config/db';
 const app: Application = express();
  
@@ -18,7 +19,8 @@ connToDB()
 // Protect all routes with the auth middleware
 // app.use(authMiddleware);
 app.use('/auth/',authUser)
-app.use('/get/',getSocietyData)
+app.use('/get/', getSocietyData)
+app.use('/chart/', getChartData)
 app.listen(PORT, () => {
   console.log(`Server Fired up, on port ${PORT}` );
 });
