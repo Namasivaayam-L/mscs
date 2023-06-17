@@ -26,11 +26,6 @@ ChartJS.register(
 
 export default function Chart(props:any) {
     const barOptions = {
-      // responsive: true,
-      // plugins: {
-      //   legend: {
-      //     position: 'top' as const,
-      //   },
       indexAxis: 'y' as const,
       elements: {
         bar: {

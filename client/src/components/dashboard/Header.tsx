@@ -29,8 +29,6 @@ export default function Header(props: HeaderProps) {
             </Grid>
           </Grid>
         </Toolbar>
-      {/* </AppBar> */}
-      {/* <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 1 }}> */}
         <TabContext value={value}>
           <TabList textColor="inherit" onChange={(e: any, newValue: string) => setValue(newValue)}>
               <Tab value="stateWise" label="State Wise" />
