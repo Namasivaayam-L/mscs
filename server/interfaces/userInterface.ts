@@ -1,0 +1,16 @@
+export interface User {
+    name: string,
+    username: string,
+    password: string,
+    address: string,
+    head_quarters: string,
+    district: string,
+    cls_society: string,
+    pan_no: string,
+    tan_no: string,
+    name_of_auth_officer: string,
+    designation: string,
+    mobile_no_auth_officer: number,
+    email: string,
+    service_tax_no: string,
+}
