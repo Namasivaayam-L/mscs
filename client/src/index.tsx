@@ -12,8 +12,7 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
         <Routes>
-          <Route path='/auth' element={<SignInSide/>}/>  
-          <Route path='/home' element={<Home/>}/>  
+          <Route path='/' element={<Home/>}/>  
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

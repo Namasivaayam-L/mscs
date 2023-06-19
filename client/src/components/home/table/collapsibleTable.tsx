@@ -33,6 +33,7 @@ interface rowData {
 	};
 }
 
+
 function createData(
 	name_of_society: string,
 	address: string,
@@ -55,8 +56,9 @@ function createData(
 	};
 }
 
-export default function CollapsibleTable() {
+export default function CollapsibleTable(props:any) {
 	const [rowData, setRowData] = React.useState<Array<rowData>>([]);
+	const [searchData, setSearchData] = React.useState<Array<rowData>>([]);
 	const setData = React.useCallback((rows: row[]) => {
 		let r = rows.map((row: row) =>
 			createData(
@@ -82,25 +84,40 @@ export default function CollapsibleTable() {
 		};
 		getData();
 	}, [setData]);
+	React.useEffect(() => {
+		const filterString = (attr: string = 'name_of_society', str: string) => {
+			str === ''? setSearchData([]) :setSearchData(rowData.filter((row:any)=>row[attr].toLowerCase().includes(str.toLowerCase())))
+		}
+		filterString(props.attr, props.search)
+	},[props.attr,props.search,rowData])
 
 	return (
-		<TableContainer component={Paper}>
-			<Table aria-label="collapsible table">
-				<TableHead>
-					<TableRow>
-						<TableCell />
-						<TableCell>Name Of Society (100g serving)</TableCell>
-						<TableCell align="right">District</TableCell>
-						<TableCell align="right">State</TableCell>
-						<TableCell align="right">Sector Type</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{rowData.map((row: rowData) => (
-						<Row key={row.name_of_society} row={row} />
-					))}
-				</TableBody>
-			</Table>
-		</TableContainer>
+		<Paper sx={{ width: '100%', overflow: 'hidden' }}>
+			<TableContainer component={Paper} sx={{ maxHeight: 630 }}>
+				<Table stickyHeader aria-label="sticky table">
+					<TableHead>
+						<TableRow>
+							<TableCell />
+							<TableCell><h2>Name Of Society</h2></TableCell>
+							<TableCell align="right"><h2>District</h2></TableCell>
+							<TableCell align="right"><h2>State</h2></TableCell>
+							<TableCell align="right"><h2>Sector Type</h2></TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{
+							props.search===''?
+							rowData.map((row: rowData) => (
+								<Row key={row.name_of_society} iD={'org'} row={row} />
+							))
+								:
+							searchData.map((row: rowData) => (
+								<Row key={row.name_of_society} iD={'search'}  row={row} />
+							))
+						}
+					</TableBody>
+				</Table>
+			</TableContainer>
+		</Paper>
 	);
 }

@@ -23,8 +23,8 @@ interface rowData {
 	};
 }
 
-export default function Row(props: { row: rowData }) {
-    const { row } = props;
+export default function Row(props: { iD:string, row: rowData }) {
+    const { iD, row } = props;
     const [open, setOpen] = React.useState(false);
   
     return (
@@ -43,7 +43,7 @@ export default function Row(props: { row: rowData }) {
               )}
             </IconButton>
           </TableCell>
-          <TableCell component="th" scope="row">{row.name_of_society}</TableCell>
+          <TableCell component="th" scope="row">{row.name_of_society + iD}</TableCell>
           <TableCell align="right">{row.district}</TableCell>
           <TableCell align="right">{row.state}</TableCell>
           <TableCell align="right">{row.sector_type}</TableCell>

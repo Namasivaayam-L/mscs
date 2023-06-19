@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Header from '../charts/Header';
 import SignInSide from '../../pages/auth/signInSide';
+import Table from '../tables/table';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -41,7 +42,7 @@ function TabPanel(props: TabPanelProps) {
   
 
 const Navigator = () => {
-	const [value, setValue] = React.useState(0);
+	const [value, setValue] = React.useState(2);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 	  setValue(newValue);
@@ -73,7 +74,7 @@ const Navigator = () => {
 			<Header />
 		</TabPanel>
 		<TabPanel value={value} index={2}>
-			
+			<Table/>	
 		</TabPanel>
 		</Box>
 

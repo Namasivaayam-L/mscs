@@ -52,8 +52,8 @@ export default function Header() {
 								onChange={handleChange}
 							>
 								<MenuItem value="Doug">Doughnut</MenuItem>
-								<MenuItem value="Line">Line</MenuItem>
 								<MenuItem value="Bar">Bar</MenuItem>
+								<MenuItem value="Line">Line</MenuItem>
 							</Select>
 						</FormControl>
 					</Grid>
