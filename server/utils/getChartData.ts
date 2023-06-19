@@ -9,14 +9,14 @@ router.get('/stateWise', async (req: Request, res: Response) => {
             {
                 $group: {
                     _id: "$state",
-                    total: {$sum:1},
+                    total: { $sum: 1 },
                 }
             }
         ])
         // console.log(count);
         return res.status(200).send(count)
     } catch (error) {
-        console.log('getChartData.ts ',error);
+        console.log('getChartData.ts ', error);
         return res.status(401).send(null)
     }
 })
@@ -27,14 +27,14 @@ router.get('/typeWise', async (req: Request, res: Response) => {
             {
                 $group: {
                     _id: "$sector_type",
-                    total: {$sum:1},
+                    total: { $sum: 1 },
                 }
             }
         ])
-        console.log(count);
+        // console.log(count);
         return res.status(200).send(count)
     } catch (error) {
-        console.log('getChartData.ts ',error);
+        console.log('getChartData.ts ', error);
         return res.status(401).send(null)
     }
 })
@@ -44,19 +44,30 @@ router.get('/yearWise', async (req: Request, res: Response) => {
         let count = await Data.aggregate([
             {
                 $project: {
-                    year: {
-                        $let: {
-                            vars: { yr: new Date("$date_of_registration").getFullYear() },
-                            in: { year:"$$yr"}
+                    date: {
+                        $toDate: {
+                            $dateFromString: {
+                                dateString: "$date_of_registration",
+                                format: "%d/%m/%Y",
+                                onError: new Date(0)
+                            }
                         }
+                    },
+                }
+            },
+            {
+                $group: {
+                    _id: {$year:"$date"},
+                    total: {
+                        $sum: 1
                     }
                 }
             }
         ])
-        console.log(count);
+        // console.log(count);
         return res.status(200).send(count)
     } catch (error) {
-        console.log('getChartData.ts ',error);
+        console.log('getChartData.ts ', error);
         return res.status(401).send(error)
     }
 })

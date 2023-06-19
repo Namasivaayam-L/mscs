@@ -1,13 +1,12 @@
 import React from 'react'
-import Paperbase from '../../components/dashboard/Paperbase'
 import Navbar from '../../components/navbar/navbar'
+import Navigator from '../../components/dashboard/Navigator'
 
 const Home = () => {
   return (
     <div>
       <Navbar/>
-      {/* <CollapsibleTable/> */}
-      <Paperbase/>
+      <Navigator/>
     </div>
   )
 }

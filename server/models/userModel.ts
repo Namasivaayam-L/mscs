@@ -20,4 +20,4 @@
     } 
   )
   // Create a user model
-  export const UserModel = mongoose.model<User>("User", User);
+  export const UserModel = mongoose.model<User>("Userr", User);
