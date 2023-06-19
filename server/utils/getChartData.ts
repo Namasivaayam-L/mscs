@@ -21,6 +21,24 @@ router.get('/stateWise', async (req: Request, res: Response) => {
     }
 })
 
+router.get('/districtWise', async (req: Request, res: Response) => {
+    try {
+        let count = await Data.aggregate([
+            {
+                $group: {
+                    _id: "$district",
+                    total: { $sum: 1 },
+                }
+            }
+        ])
+        // console.log(count);
+        return res.status(200).send(count)
+    } catch (error) {
+        console.log('getChartData.ts ', error);
+        return res.status(401).send(null)
+    }
+})
+
 router.get('/typeWise', async (req: Request, res: Response) => {
     try {
         let count = await Data.aggregate([

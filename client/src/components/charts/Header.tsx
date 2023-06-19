@@ -10,13 +10,12 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Toolbar from "@mui/material/Toolbar";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
 
 export default function Header() {
   const [value, setValue] = React.useState('yearWise')
-	const [type, setType] = React.useState("Area");
+	const [type, setType] = React.useState("Doug");
   const handleChange = (event: SelectChangeEvent) => {
     setType(event.target.value as string);
   };
@@ -25,9 +24,10 @@ export default function Header() {
     <React.Fragment>
       <Box >
         <TabContext value={value}>
-        <AppBar color="primary" position="sticky" elevation={0}>
+        <AppBar color="primary" position="sticky" elevation={1}>
           <TabList textColor="inherit" onChange={(e: any, newValue: string) => setValue(newValue)}>
               <Tab value="stateWise" label="State Wise" />
+              <Tab value="districtWise" label="District Wise" />
               <Tab value="typeWise" label="Type Wise" />
               <Tab value="yearWise" label="Year Wise" />
           </TabList>
@@ -36,10 +36,10 @@ export default function Header() {
 				position="static"
 				color="default"
 				elevation={1}
-				sx={{ borderBottom: "1px solid rgba(0, 0, 0, 0.12)" }}
+				sx={{ borderBottom: "1px solid rgba(0, 0, 0, 0.2)" }}
 			>
 				<Toolbar>
-					<Grid container margin="10px">
+					<Grid container margin="20px">
 						<FormControl fullWidth>
 							<InputLabel id="demo-simple-select-label">
 								Chart Type
@@ -59,7 +59,11 @@ export default function Header() {
 					</Grid>
 				</Toolbar>
 			</AppBar>
+      <Box sx={{width:"100%"}}>
           <TabPanel value="stateWise">
+              <ChartWrapper value={value} type={type} prompt={'This represent the data in State - Wise'}/>
+          </TabPanel>
+          <TabPanel value="districtWise">
               <ChartWrapper value={value} type={type} prompt={'This represent the data in State - Wise'}/>
           </TabPanel>
           <TabPanel value="yearWise">
@@ -67,7 +71,8 @@ export default function Header() {
           </TabPanel>
           <TabPanel value="typeWise">
               <ChartWrapper value={value} type={type} prompt={'This represent the data in Type - Wise'}/>
-          </TabPanel> 
+          </TabPanel>
+        </Box>  
         </TabContext>
       </Box>
     </React.Fragment>

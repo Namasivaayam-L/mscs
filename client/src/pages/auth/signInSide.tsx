@@ -13,15 +13,16 @@ const SignInSide = () => {
 	const [value, setValue] = React.useState("1");
   
 	return (
-		<div style={{ display: "flex" }}>
-			<Box sx={{}}>
-				<img src={mscs_logo} alt={"CRCS Logo"} />
+		<div style={{ display: "flex", width:'' }}>
+			<Box sx={{maxWidth:1000, zindex:-1}}>
+				<img src={mscs_logo} width="100%" alt={"CRCS Logo"} />
 			</Box>
 			<Grid
 				container
 				direction="column"
 				justifyContent="center"
 				alignItems="center"
+				sx={{position:'relative', left:0}}
 			>
 				<TabContext value={value}>
 					<Box sx={{ borderBottom: 1, borderColor: "divider" }}>

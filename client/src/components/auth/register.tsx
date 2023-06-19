@@ -58,7 +58,7 @@ const Register = () => {
 				style={{
 					display: "flex",
 					flexWrap: "wrap",
-					gap: "20px",
+					gap: "10px",
 				}}
 			>
 				<TextField

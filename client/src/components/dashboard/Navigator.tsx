@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Header from '../charts/Header';
+import SignInSide from '../../pages/auth/signInSide';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -23,7 +24,7 @@ function TabPanel(props: TabPanelProps) {
 		style={{ flexGrow: 1, flexShrink:0}}
 	  >
 		{value === index && (
-		  <Box sx={{ p: 3 }}>
+		  <Box sx={{ p: 2 }}>
 			<Typography>{children}</Typography>
 		  </Box>
 		)}
@@ -50,7 +51,7 @@ const Navigator = () => {
 	  <Box
 		sx={{ bgcolor: 'background.paper', display: 'flex'}}
 		>
-		<Box sx={{flex:1, maxWidth:'300px'}}>
+		<Box sx={{flex:1, maxWidth:'250px', backgroundColor:'#e6e8e7'}}>
 			<Tabs
 			orientation="vertical"
 			value={value}
@@ -58,16 +59,23 @@ const Navigator = () => {
 			aria-label="Vertical tabs example"
 			sx={{ borderRight: 1, borderColor: 'divider' }}
 			>
-				<Tab label="Charts" {...a11yProps(0)} />
-				<Tab label="Item Two" {...a11yProps(1)} />
+				<Tab label="Authentication" {...a11yProps(0)} />
+				<Tab label="Charts" {...a11yProps(1)} />
+				<Tab label="Tables" {...a11yProps(2)} />
 			</Tabs>
 		</Box>			
+		
+		<Box sx={{height:850, flexGrow:1}}>
 		<TabPanel value={value} index={0}>
-			<Header />
+			<SignInSide/>
 		</TabPanel>
 		<TabPanel value={value} index={1}>
-		Item Two
+			<Header />
 		</TabPanel>
+		<TabPanel value={value} index={2}>
+			
+		</TabPanel>
+		</Box>
 
 	  </Box>
   )
