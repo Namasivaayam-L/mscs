@@ -1,0 +1,167 @@
+
+    Get the top 10 most active societies in terms of the number of members. This can be done using the sort() and limit() aggregation operators.
+
+Code snippet
+
+db.collection.aggregate([
+  { "$group": {
+    "_id": "$name_of_society",
+    "number_of_members": { "$sum": 1 }
+  } },
+  { "$sort": { "number_of_members": -1 } },
+  { "$limit": 10 }
+])
+
+Use code with caution. Learn more
+
+These are just a few examples of the many aggregations that can be performed on your MongoDB collection. By using the aggregation framework, you can easily gain insights into your data and visualize it in a variety of ways.
+
+Here are some additional tips for using the aggregation framework:
+
+    Use the $match stage to filter the documents that will be aggregated. This can be helpful for reducing the amount of data that needs to be processed.
+    Use the $group stage to group the documents by a common value. This allows you to perform aggregation operations on the grouped data.
+    Use the $project stage to project the desired fields from the grouped data. This allows you to customize the output of the aggregation pipeline.
+    Use the $sort stage to sort the aggregated data. This can be helpful for displaying the data in a specific order.
+    Use the $limit stage to limit the number of aggregated documents. This can be helpful for preventing the aggregation pipeline from returning too much data.
+
+I hope this helps!
+profile picture
+give me all the possibilities
+View other drafts
+
+Sure, here are all the possibilities for aggregations that can be performed on your MongoDB collection:
+
+
+    Get the number of societies that have been registered in the past year. This can be done using the match() and count() aggregation operators.
+
+Code snippet
+
+db.collection.aggregate([
+  { "$match": { "date_of_registration": { "$gt": new Date(new Date().getFullYear() - 1) } } },
+  { "$count": { "_id": null } }
+])
+
+Use code with caution. Learn more
+
+    Get the list of societies that have the most members in each state. This can be done using the group(), sum(), sort(), and limit() aggregation operators.
+
+Code snippet
+
+db.collection.aggregate([
+  { "$group": {
+    "_id": "$state",
+    "most_members": { "$sum": 1 }
+  } },
+  { "$sort": { "most_members": -1 } },
+  { "$limit": 10 }
+])
+
+
+
+
+// Aggregation 5: Find societies registered after a specific date
+const findSocietiesRegisteredAfterDate = async (date: string) => {
+    return await SocietyModel.find({ date_of_registration: { $gt: date } });
+};
+
+
+
+    Aggregation to calculate the distribution of societies by state:
+
+const stateDistribution = async () => {
+    return await SocietyModel.aggregate([
+        { $group: { _id: "$state", count: { $sum: 1 } } },
+        { $sort: { count: -1 } }
+    ]);
+};
+
+    Aggregation to calculate the count of societies in each sector type:
+
+const sectorTypeDistribution = async () => {
+    return await SocietyModel.aggregate([
+        { $group: { _id: "$sector_type", count: { $sum: 1 } } }
+    ]);
+};
+
+    Aggregation to calculate the count of societies registered each year:
+
+const societyRegistrationByYear = async () => {
+    return await SocietyModel.aggregate([
+        { $group: { _id: { $substr: ["$date_of_registration", 0, 4] }, count: { $sum: 1 } } },
+        { $sort: { _id: 1 } }
+    ]);
+};
+
+    Aggregation to find the top 5 districts with the highest number of societies:
+
+const topDistrictsBySocieties = async () => {
+    return await SocietyModel.aggregate([
+        { $group: { _id: "$district", count: { $sum: 1 } } },
+        { $sort: { count: -1 } },
+        { $limit: 5 }
+    ]);
+};
+
+    Aggregation to calculate the average number of societies per district:
+
+const averageSocietiesPerDistrict = async () => {
+    return await SocietyModel.aggregate([
+        { $group: { _id: "$district", count: { $sum: 1 } } },
+        { $group: { _id: null, average: { $avg: "$count" } } }
+    ]);
+};
+
+    Aggregation to find the distribution of societies across different areas of operation:
+
+const areaOfOperationDistribution = async () => {
+    return await SocietyModel.aggregate([
+        { $group: { _id: "$area_of_operation", count: { $sum: 1 } } }
+    ]);
+};
+
+
+
+    Aggregation to find the count of societies in each state and sort them in descending order:
+
+const societyCountByState = async () => {
+  return await SocietyModel.aggregate([
+    { $group: { _id: "$state", count: { $sum: 1 } } },
+    { $sort: { count: -1 } }
+  ]);
+};
+
+    Aggregation to calculate the average number of societies in each district:
+
+const averageSocietiesPerDistrict = async () => {
+  return await SocietyModel.aggregate([
+    { $group: { _id: "$district", count: { $sum: 1 } } },
+    { $group: { _id: null, average: { $avg: "$count" } } }
+  ]);
+};
+
+    Aggregation to find the number of societies registered in each year:
+
+const societyCountByRegistrationYear = async () => {
+  return await SocietyModel.aggregate([
+    { $group: { _id: { $year: { $dateFromString: { dateString: "$date_of_registration" } } }, count: { $sum: 1 } } },
+    { $sort: { _id: 1 } }
+  ]);
+};
+
+    Aggregation to calculate the total count of societies and the average count of societies per district:
+
+const societyStats = async () => {
+  return await SocietyModel.aggregate([
+    { $group: { _id: null, total: { $sum: 1 }, average: { $avg: 1 } } }
+  ]);
+};
+
+    Aggregation to find the top 5 sectors with the highest number of societies:
+
+const topSectorsBySocieties = async () => {
+  return await SocietyModel.aggregate([
+    { $group: { _id: "$sector_type", count: { $sum: 1 } } },
+    { $sort: { count: -1 } },
+    { $limit: 5 }
+  ]);
+};

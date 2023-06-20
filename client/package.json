@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.134",
     "@mui/material": "^5.13.5",
+    "@mui/x-date-pickers": "^6.8.0",
     "@react-google-maps/api": "^2.18.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -19,6 +20,7 @@
     "@types/react-dom": "^18.2.5",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.8",
     "faker": "^6.6.6",
     "modern-react-captcha": "^3.0.0",
     "react": "^18.2.0",
@@ -27,6 +29,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
+    "react-swipeable-views": "^0.14.0",
     "react-virtuoso": "^4.3.10",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"

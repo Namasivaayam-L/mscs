@@ -7,6 +7,7 @@ import Header from '../charts/Header';
 import SignInSide from '../../pages/auth/signInSide';
 import Table from '../tables/table';
 import MapWrapper from '../maps/mapWrapper';
+import DataViszWrapper from '../dataVisz/dataViszWrapper';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,7 +44,7 @@ function TabPanel(props: TabPanelProps) {
   
 
 const Navigator = () => {
-	const [value, setValue] = React.useState(3);
+	const [value, setValue] = React.useState(1);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 	  setValue(newValue);
@@ -64,7 +65,8 @@ const Navigator = () => {
 				<Tab label="Authentication" {...a11yProps(0)} />
 				<Tab label="Charts" {...a11yProps(1)} />
 				<Tab label="Tables" {...a11yProps(2)} />
-				<Tab label="Maps" {...a11yProps(2)} />
+				<Tab label="Maps" {...a11yProps(3)} />
+				<Tab label="DataVisz" {...a11yProps(4)} />
 			</Tabs>
 		</Box>			
 		
@@ -80,6 +82,9 @@ const Navigator = () => {
 		</TabPanel>
 		<TabPanel value={value} index={3}>
 			<MapWrapper/>	
+		</TabPanel>
+		<TabPanel value={value} index={4}>
+			<DataViszWrapper/>	
 		</TabPanel>
 		</Box>
 
