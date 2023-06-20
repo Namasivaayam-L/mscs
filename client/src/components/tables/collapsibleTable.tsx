@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
-import { server_url } from "../../../config/config";
+import { server_url } from "../../config/config";
 import Row from "./row";
 
 interface row {
@@ -56,10 +56,14 @@ function createData(
 	};
 }
 
-export default function CollapsibleTable(props:any) {
+export default function CollapsibleTable(props: any) {
+	const [rows, setRows] = React.useState<Array<row>>([])
 	const [rowData, setRowData] = React.useState<Array<rowData>>([]);
 	const [searchData, setSearchData] = React.useState<Array<rowData>>([]);
+	const [filType, ] = React.useState(props.attr === 'date_of_registration')
+
 	const setData = React.useCallback((rows: row[]) => {
+		setRows(rows)
 		let r = rows.map((row: row) =>
 			createData(
 				row.name_of_society,
@@ -76,20 +80,57 @@ export default function CollapsibleTable(props:any) {
 	}, []);
 	React.useEffect(() => {
 		const getData = async () => {
-			let { data: res } = await axios.get(
-				server_url + "/get/getSocietyData"
-			);
+			let { data: res } = await axios.get(server_url + "/get/getSocietyData");
 			// console.log(res)
 			setData(res);
 		};
 		getData();
 	}, [setData]);
 	React.useEffect(() => {
-		const filterString = (attr: string = 'name_of_society', str: string) => {
-			str === ''? setSearchData([]) :setSearchData(rowData.filter((row:any)=>row[attr].toLowerCase().includes(str.toLowerCase())))
+		const filterString = (attr: string = "name_of_society", str: string) => {
+			function searchFunc() {
+				let r: row[] = rows.filter((row: any) =>
+					row[attr].toLowerCase().includes(str.toLowerCase())
+				);
+				setSearchData(
+					r.map((row: row) =>
+						createData(
+							row.name_of_society,
+							row.address,
+							row.state,
+							row.district,
+							row.date_of_registration,
+							row.area_of_operation,
+							row.sector_type
+						)
+					)
+				);
+			}
+			str === "" ? setSearchData([]) : searchFunc();
+		};
+		filterString(props.attr, props.search);
+	}, [props.attr, props.search, rows]);
+
+	React.useEffect(() => {
+		function sortByDate(asc: boolean = true) {
+			let sortedRows = rows.sort((a: row, b: row): any =>
+				asc ?
+					new Date(a.date_of_registration).getTime() - new Date(b.date_of_registration).getTime():
+					new Date(b.date_of_registration).getTime() - new Date(a.date_of_registration).getTime())
+			setRowData(sortedRows.map((row: row) =>
+				createData(
+					row.name_of_society,
+					row.address,
+					row.state,
+					row.district,
+					row.date_of_registration,
+					row.area_of_operation,
+					row.sector_type
+				))
+			)
 		}
-		filterString(props.attr, props.search)
-	},[props.attr,props.search,rowData])
+		filType && sortByDate(props.type==='desc'?false:true)
+	}, [rows,filType,props.type]);
 
 	return (
 		<Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -106,14 +147,14 @@ export default function CollapsibleTable(props:any) {
 					</TableHead>
 					<TableBody>
 						{
-							props.search===''?
-							rowData.map((row: rowData) => (
-								<Row key={row.name_of_society} iD={'org'} row={row} />
-							))
+							props.search === '' ?
+								rowData.map((row: rowData) => (
+									<Row key={row.name_of_society} row={row} />
+								))
 								:
-							searchData.map((row: rowData) => (
-								<Row key={row.name_of_society} iD={'search'}  row={row} />
-							))
+								searchData.map((row: rowData) => (
+									<Row key={row.name_of_society} row={row} />
+								))
 						}
 					</TableBody>
 				</Table>

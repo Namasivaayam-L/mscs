@@ -9,13 +9,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Grid from "@mui/material/Grid";
-import CollapsibleTable from '../home/table/collapsibleTable';
+import CollapsibleTable from './collapsibleTable';
 
 
 export default function Table() {
   const [value, setValue] = React.useState('all')
-	const [type, setType] = React.useState("asc");
-	const [attr, setAttr] = React.useState('name_of_society')
+	const [type, setType] = React.useState("desc");
+	const [attr, setAttr] = React.useState('date_of_registration')
 	const [search, setSearch] = React.useState('')
   const handleChangeType = (event: SelectChangeEvent) => {
     setType(event.target.value as string);
@@ -46,11 +46,11 @@ export default function Table() {
 							<InputLabel id="demo-simple-select-label">
 								 Search
 							</InputLabel>
-							<TextField sx={{ width: "100%" }} onChange={ (e:any)=>setSearch(e.target.value) } />		
+							<TextField sx={{ width: "100%" }} onChange={ (e:any)=>setSearch(e.target.value) } disabled={ attr==='date_of_registration'?true:false } />		
 						</Box>		
 						<Box sx={{width:'33%'}}>
 							<InputLabel id="demo-simple-select-label">
-								 Filter Attribute
+								 Search in
 							</InputLabel>
 							<Select sx={{width:"100%"}}
 								labelId="demo-simple-select-label"
