@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Header from '../charts/Header';
 import SignInSide from '../../pages/auth/signInSide';
 import Table from '../tables/tables/table';
-// import MapWrapper from '../maps/mapWrapper';
 import RegSocietiesList from '../tables/regSocieties/regSocietiesList';
 import Forms from '../forms/forms';
 import MscsActWrapper from '../mscsAct/mscsActWrapper';

@@ -9,7 +9,6 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import mscs_logo from '../../assets/MSCS_LOGO.png'
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
