@@ -20,7 +20,7 @@ const Register = (props:any) => {
 	const [email, setEmail] = useState("");
 	const [service_tax_no, setService_tax_no] = useState("");
     const [isVerified, setIsVerified] = useState(Boolean)
-	const [res, setRes] = useState('')
+	const [res, setRes] = useState('Please enter all details and correct captcha to register')
 
 	const handleSuccess = () => setIsVerified(true)
 	const handleFailure = () => setIsVerified(false)
@@ -135,9 +135,9 @@ const Register = (props:any) => {
 					display: 'flex',
 					flexDirection:'column'
 				}}>
+					<p>{ res }</p>
 					<p>Once registered please Sign In</p>
 					{(isVerified || !verifyCaptcha) && <Button variant="contained" onClick={handleSubmit}>Register</Button>}
-					<p>{ res }</p>
 				</div>
 			</div>
 		</>

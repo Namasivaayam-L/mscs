@@ -8,7 +8,7 @@ const SignIn = (props:any) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isVerified, setIsVerified] = useState(Boolean)
-  const [res, setRes] = useState('')
+  const [res, setRes] = useState('Please enter all details and correct captcha to signin')
 	const handleSuccess = () => setIsVerified(true)
 	const handleFailure = () => setIsVerified(false)
 
