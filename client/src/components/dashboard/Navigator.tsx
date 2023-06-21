@@ -68,15 +68,16 @@ const Navigator = () => {
 				<Tab label="Authentication" {...a11yProps(0)} />
 				<Tab label="Charts" {...a11yProps(1)} />
 				<Tab label="Tables" {...a11yProps(2)} />
-				<Tab label="Maps" {...a11yProps(3)} />
-				<Tab label="Registered Societies" {...a11yProps(4)} />
-				<Tab label="Forms" {...a11yProps(5)} />
-				<Tab label="MSCS Act" {...a11yProps(6)} />
-				<Tab label="Application" {...a11yProps(7)} />
-				<Tab label="MSCS-MIS" {...a11yProps(8)} />
-				<Tab label="Reports" {...a11yProps(9)} />
-				<Tab label="Liquidation" {...a11yProps(10)} />
-				<Tab label="Banks" {...a11yProps(11)} />
+				<Tab label="Registered Societies" {...a11yProps(3)} />
+				<Tab label="Forms" {...a11yProps(4)} />
+				<Tab label="MSCS Act" {...a11yProps(5)} />
+				<Tab label="About me" {...a11yProps(6)} />
+				<Tab label="Maps" {...a11yProps(7)} />
+				<Tab label="Application" {...a11yProps(8)} />
+				<Tab label="MSCS-MIS" {...a11yProps(9)} />
+				<Tab label="Reports" {...a11yProps(10)} />
+				<Tab label="Liquidation" {...a11yProps(11)} />
+				<Tab label="Banks" {...a11yProps(12)} />
 			</Tabs>
 		</Box>			
 		
@@ -91,27 +92,28 @@ const Navigator = () => {
 			<Table/>	
 		</TabPanel>
 		<TabPanel value={value} index={3}>
-			<MapWrapper/>	
-		</TabPanel>
-		<TabPanel value={value} index={4}>
 			<Box sx={{display:'flex',justifyContent:'center'}} >
 				<RegSocietiesList />	
 			</Box>	
 		</TabPanel>
-		<TabPanel value={value} index={5}>
+		<TabPanel value={value} index={4}>
 			<Box sx={{display:'flex',justifyContent:'center'}} >
 				<Forms />	
 			</Box>	
 		</TabPanel>
-		<TabPanel value={value} index={6}>
+		<TabPanel value={value} index={5}>
 			<Box sx={{display:'flex',justifyContent:'center'}} >
 				<MscsActWrapper />	
 			</Box>	
 		</TabPanel>
+		<TabPanel value={value} index={6}>
+		<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>			</TabPanel>
 		<TabPanel value={value} index={7}>
 			<Box sx={{display:'flex',justifyContent:'center'}} >
 				<Fail/>
-			</Box>	
+			</Box>				{/* <MapWrapper/>	 */}
 		</TabPanel>
 		<TabPanel value={value} index={8}>
 			<Box sx={{display:'flex',justifyContent:'center'}} >
@@ -129,6 +131,11 @@ const Navigator = () => {
 			</Box>	
 		</TabPanel>
 		<TabPanel value={value} index={11}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={12}>
 			<Box sx={{display:'flex',justifyContent:'center'}} >
 				<Fail/>
 			</Box>	
