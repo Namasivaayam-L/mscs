@@ -38,6 +38,7 @@ export default function Header() {
 									: setIsDate(false);
 								setValue(newValue);
 							}}
+							centered
 						>
 							<Tab value="stateWise" label="State Wise" />
 							<Tab value="districtWise" label="District Wise" />

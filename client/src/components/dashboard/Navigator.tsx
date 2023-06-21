@@ -7,8 +7,10 @@ import Header from '../charts/Header';
 import SignInSide from '../../pages/auth/signInSide';
 import Table from '../tables/tables/table';
 import MapWrapper from '../maps/mapWrapper';
-import DataViszWrapper from '../dataVisz/dataViszWrapper';
 import RegSocietiesList from '../tables/regSocieties/regSocietiesList';
+import Forms from '../forms/forms';
+import MscsActWrapper from '../mscsAct/mscsActWrapper';
+import Fail from '../fallback/fail';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -45,7 +47,7 @@ function TabPanel(props: TabPanelProps) {
   
 
 const Navigator = () => {
-	const [value, setValue] = React.useState(0);
+	const [value, setValue] = React.useState(6);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 	  setValue(newValue);
@@ -67,7 +69,7 @@ const Navigator = () => {
 				<Tab label="Charts" {...a11yProps(1)} />
 				<Tab label="Tables" {...a11yProps(2)} />
 				<Tab label="Maps" {...a11yProps(3)} />
-				<Tab label="regSocieties" {...a11yProps(4)} />
+				<Tab label="Registered Societies" {...a11yProps(4)} />
 				<Tab label="Forms" {...a11yProps(5)} />
 				<Tab label="MSCS Act" {...a11yProps(6)} />
 				<Tab label="Application" {...a11yProps(7)} />
@@ -92,7 +94,44 @@ const Navigator = () => {
 			<MapWrapper/>	
 		</TabPanel>
 		<TabPanel value={value} index={4}>
-			<RegSocietiesList/>	
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<RegSocietiesList />	
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={5}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Forms />	
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={6}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<MscsActWrapper />	
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={7}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={8}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={9}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={10}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>	
+		</TabPanel>
+		<TabPanel value={value} index={11}>
+			<Box sx={{display:'flex',justifyContent:'center'}} >
+				<Fail/>
+			</Box>	
 		</TabPanel>
 		</Box>
 
