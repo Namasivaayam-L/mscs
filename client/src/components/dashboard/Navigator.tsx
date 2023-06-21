@@ -47,7 +47,7 @@ function TabPanel(props: TabPanelProps) {
   
 
 const Navigator = () => {
-	const [value, setValue] = React.useState(6);
+	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 	  setValue(newValue);
