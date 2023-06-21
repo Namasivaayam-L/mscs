@@ -50,9 +50,9 @@ const DataViszWrapper = () => {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
-  };
+  // const handleChangeIndex = (index: number) => {
+  //   setValue(index);
+  // };
 
   return (
     <Box sx={{ bgcolor: 'background.paper', width: 500 }}>

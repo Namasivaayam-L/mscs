@@ -30,7 +30,7 @@ router.post("/signin", async (req: Request, res: Response) => {
 
 	// Redirect to the home page
 	// res.redirect("/");`
-	return res.status(201).send({username:req.body.username,path:'/home'})
+	return res.status(201).send({username:req.body.username,path:'success'})
 });
 
 router.post("/register", async (req: Request, res: Response) => {
@@ -83,7 +83,7 @@ router.post("/register", async (req: Request, res: Response) => {
 	await user.save();
 
 	// Return the user
-	return res.status(201).send('/auth');
+	return res.status(201).send('success');
 });
 
 export default router;

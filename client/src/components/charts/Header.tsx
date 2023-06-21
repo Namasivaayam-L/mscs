@@ -16,7 +16,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 export default function Header() {
-	const [value, setValue] = React.useState("dateRange");
+	const [value, setValue] = React.useState("stateWise");
 	const [type, setType] = React.useState("Doug");
 	const [isDate, setIsDate] = React.useState(false);
 	const [minDate, setMinDate] = React.useState<Dayjs | null>(dayjs('2002-01-01T21:11:54'));

@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
-import { server_url } from "../../config/config";
+import { server_url } from "../../../config/config";
 import Row from "./row";
 
 interface row {

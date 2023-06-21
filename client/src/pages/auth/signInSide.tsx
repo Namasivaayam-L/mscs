@@ -9,7 +9,7 @@ import mscs_logo from "../../assets/mscs_logo.webp";
 import SignIn from "../../components/auth/signin";
 import Register from "../../components/auth/register";
 
-const SignInSide = () => {
+const SignInSide = (props:any) => {
 	const [value, setValue] = React.useState("1");
   
 	return (
@@ -34,10 +34,10 @@ const SignInSide = () => {
 						</TabList>
 					</Box>
 					<TabPanel value="1">
-						<SignIn />
+						<SignIn {...props} />
 					</TabPanel>
 					<TabPanel value="2">
-						<Register />
+						<Register setValue={ setValue } />
 					</TabPanel>
 				</TabContext>
 			</Grid>

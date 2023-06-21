@@ -3,10 +3,8 @@ import { Button, TextField } from "@mui/material";
 import Captcha from "../captcha/captcha";
 import { server_url, verifyCaptcha } from "../../config/config";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
-const Register = () => {
-	const navigate = useNavigate()
+const Register = (props:any) => {
 	const [name, setName] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -47,7 +45,7 @@ const Register = () => {
 		})
 		.then((res: any) => {
 			// console.log(res.data);
-			res.data === '/auth' ? navigate('/auth') : setRes(res.data) 
+			res.data === 'success' ? props.setValue('1') : setRes(res.data) 
 		  })
 	};
 

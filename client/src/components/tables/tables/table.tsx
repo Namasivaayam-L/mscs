@@ -14,8 +14,8 @@ import CollapsibleTable from './collapsibleTable';
 
 export default function Table() {
   const [value, setValue] = React.useState('all')
-	const [type, setType] = React.useState("desc");
-	const [attr, setAttr] = React.useState('date_of_registration')
+	const [type, setType] = React.useState("asc");
+	const [attr, setAttr] = React.useState('name_of_society')
 	const [search, setSearch] = React.useState('')
   const handleChangeType = (event: SelectChangeEvent) => {
     setType(event.target.value as string);

@@ -6,9 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import axios from "axios";
-import { server_url } from "../../config/config";
-import Row from "../tables/row";
+import Row from "../tables/tables/row";
+import moment from "moment";
 
 interface row {
 	_id: string;
@@ -33,7 +32,6 @@ interface rowData {
 	};
 }
 
-
 function createData(
 	name_of_society: string,
 	address: string,
@@ -47,7 +45,7 @@ function createData(
 		name_of_society,
 		district,
 		state,
-		sector_type,
+		sector_type, 
 		collapse: {
 			address,
 			date_of_registration,
@@ -56,28 +54,26 @@ function createData(
 	};
 }
 
-export default function DateRangeTable(props: any) {
-	const [rows, setRows] = React.useState<Array<row>>([])
+export default function DateRangeTable(props: any) { 
 	const [rowData, setRowData] = React.useState<Array<rowData>>([]);
 
 	React.useEffect(() => {
-    const setData = (rows: row[]) => {
-      setRows(rows)
-      let r = rows.map((row: row) =>
+    const setData = () => {
+      let r = props.data.map((row: row) =>
         createData(
           row.name_of_society,
           row.address,
           row.state,
           row.district,
-          row.date_of_registration,
+          moment(row.date_of_registration).format('DD/MM/YYYY'),
           row.area_of_operation,
           row.sector_type
         )
       );
       setRowData(r);
-      console.log(r);
+      // console.log(r);
     }
-    setData(props.data)
+    setData()
 	}, [props.data]);
 	
 

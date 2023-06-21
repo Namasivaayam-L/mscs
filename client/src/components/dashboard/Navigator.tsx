@@ -5,9 +5,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Header from '../charts/Header';
 import SignInSide from '../../pages/auth/signInSide';
-import Table from '../tables/table';
+import Table from '../tables/tables/table';
 import MapWrapper from '../maps/mapWrapper';
 import DataViszWrapper from '../dataVisz/dataViszWrapper';
+import RegSocietiesList from '../tables/regSocieties/regSocietiesList';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -44,7 +45,7 @@ function TabPanel(props: TabPanelProps) {
   
 
 const Navigator = () => {
-	const [value, setValue] = React.useState(1);
+	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 	  setValue(newValue);
@@ -66,13 +67,20 @@ const Navigator = () => {
 				<Tab label="Charts" {...a11yProps(1)} />
 				<Tab label="Tables" {...a11yProps(2)} />
 				<Tab label="Maps" {...a11yProps(3)} />
-				<Tab label="DataVisz" {...a11yProps(4)} />
+				<Tab label="regSocieties" {...a11yProps(4)} />
+				<Tab label="Forms" {...a11yProps(5)} />
+				<Tab label="MSCS Act" {...a11yProps(6)} />
+				<Tab label="Application" {...a11yProps(7)} />
+				<Tab label="MSCS-MIS" {...a11yProps(8)} />
+				<Tab label="Reports" {...a11yProps(9)} />
+				<Tab label="Liquidation" {...a11yProps(10)} />
+				<Tab label="Banks" {...a11yProps(11)} />
 			</Tabs>
 		</Box>			
 		
 		<Box sx={{height:850, flexGrow:1}}>
 		<TabPanel value={value} index={0}>
-			<SignInSide/>
+			<SignInSide setValue={ setValue } />
 		</TabPanel>
 		<TabPanel value={value} index={1}>
 			<Header />
@@ -84,7 +92,7 @@ const Navigator = () => {
 			<MapWrapper/>	
 		</TabPanel>
 		<TabPanel value={value} index={4}>
-			<DataViszWrapper/>	
+			<RegSocietiesList/>	
 		</TabPanel>
 		</Box>
 
