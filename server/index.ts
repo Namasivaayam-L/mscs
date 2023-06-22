@@ -28,10 +28,10 @@ app.use('/get/', getSocietyData)
 app.use('/chart/', getChartData)
 cron.schedule('*/1 * * * *', () => {
   console.log('stay awake')
-  // https.get(server_url, (res: any) => {
-  //   res.on('data', (data: any) => console.log(data))
-  //   res.on('end',()=>console.log('Ended'))
-  // }).on('error',(error:Error)=>console.log(error))
+  https.get(server_url, (res: any) => {
+    res.on('data', (data: any) => console.log(data))
+    res.on('end',()=>console.log('Ended'))
+  }).on('error',(error:Error)=>console.log(error))
 });
 app.listen(PORT, () => {
   console.log(`Server Fired up, on port ${PORT}` );
