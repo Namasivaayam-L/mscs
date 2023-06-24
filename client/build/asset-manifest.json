@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d388cd86.css",
+    "main.js": "/static/js/main.a1a4ae9c.js",
+    "static/media/NatPolicy02.pdf": "/static/media/NatPolicy02.6171d179d77e60321a93.pdf",
+    "static/media/GuidelineAct2002.pdf": "/static/media/GuidelineAct2002.b490b436a0aa91121abf.pdf",
+    "static/media/Rules2002.pdf": "/static/media/Rules2002.0070c4487b6e78cb8559.pdf",
+    "static/media/MSCS_LOGO.png": "/static/media/MSCS_LOGO.7e624f7903a34b5c3479.png",
+    "static/media/LawsModel2002.pdf": "/static/media/LawsModel2002.a1127ef69972e3a375d5.pdf",
+    "static/media/mscs_logo.webp": "/static/media/mscs_logo.f6e965b5a102b73b3bec.webp",
+    "static/media/Form1.pdf": "/static/media/Form1.bc84205e6a03052bf23a.pdf",
+    "static/media/Form5.pdf": "/static/media/Form5.f4b85e15b1b8dc49cca3.pdf",
+    "static/media/Form3.pdf": "/static/media/Form3.fb334370df0f0b413c5b.pdf",
+    "static/media/Form2.pdf": "/static/media/Form2.dde22ac5abd9f780d694.pdf",
+    "static/media/Form4.pdf": "/static/media/Form4.61039c7a42f6a81f2b70.pdf",
+    "index.html": "/index.html",
+    "main.d388cd86.css.map": "/static/css/main.d388cd86.css.map",
+    "main.a1a4ae9c.js.map": "/static/js/main.a1a4ae9c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d388cd86.css",
+    "static/js/main.a1a4ae9c.js"
+  ]
+}
