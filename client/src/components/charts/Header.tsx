@@ -29,7 +29,7 @@ export default function Header() {
 		<React.Fragment>
 			<Box>
 				<TabContext value={value}>
-					<AppBar color="primary" position="sticky" elevation={1}>
+					<AppBar color="primary" position="static" elevation={1}>
 						<TabList
 							textColor="inherit"
 							onChange={(e: any, newValue: string) => {
@@ -38,6 +38,8 @@ export default function Header() {
 									: setIsDate(false);
 								setValue(newValue);
 							}}
+							variant="scrollable"
+							scrollButtons="auto"
 							centered
 						>
 							<Tab value="stateWise" label="State Wise" />

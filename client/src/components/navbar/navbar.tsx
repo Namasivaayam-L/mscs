@@ -10,6 +10,9 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import mscs_logo from '../../assets/MSCS_LOGO.png'
+import MenuIcon from '@mui/icons-material/Menu';
+import { Button } from '@mui/material';
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
@@ -24,26 +27,25 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{width:'100%',borderBottom:'1px solid white'}}>
       <Container maxWidth="lg" >
         <Toolbar disableGutters >
-          <Box sx={{display:'flex'}}>
-            <img src={mscs_logo} alt="mscs logo" width="4%"/>&nbsp;&nbsp;&nbsp;
+          <Box sx={{ display: 'flex' }}>
+            <img src={mscs_logo} alt="mscs logo" style={{maxWidth:'4%'}} />&nbsp;&nbsp;&nbsp;
             <Typography
               variant="h6"
-              noWrap
               component="a"
-              href="/home"
+              href="/"
               sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                //   fontFamily: 'monospace',
-                fontWeight: 100,
-                //   letterSpacing: '.5rem',
+                // mr: 2,
+                // display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                // fontWeight: 100, 
+                letterSpacing: '.01rem',
                 color: 'inherit',
                 textDecoration: 'none',
               }}
-              > 	
+            > 	
               MULTI-STATE CO-OPERATIVE SOCIETIES 
             </Typography>
           </Box>

@@ -1,13 +1,16 @@
 import React from 'react'
 import Navbar from '../../components/navbar/navbar'
 import Navigator from '../../components/dashboard/Navigator'
+import { Box } from '@mui/material'
+import AppNavig from '../../components/dashboard/appNavig'
 
 const Home = () => {
   return (
-    <div>
+    <Box>
       <Navbar/>
-      <Navigator/>
-    </div>
+      {/* <Navigator /> */}
+      <AppNavig/>
+    </Box>
   )
 }
 

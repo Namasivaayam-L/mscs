@@ -53,8 +53,11 @@ const Navigator = () => {
 	};
 
 	return (
-	  <Box
-		sx={{ bgcolor: 'background.paper', display: 'flex'}}
+		<Box sx={{
+			bgcolor: 'background.paper',
+			display: 'flex',
+			paddingTop:'%'
+		}}
 		>
 		<Box sx={{flex:1, maxWidth:'250px', backgroundColor:'#e6e8e7'}}>
 			<Tabs
