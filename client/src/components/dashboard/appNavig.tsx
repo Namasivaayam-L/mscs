@@ -13,9 +13,9 @@ const AppNavig = () => {
 	const [value, setValue] = React.useState("Charts");
 
   return (
-    <Box>
-      <TabContext value={value}>
-        <AppBar color="primary" position="static" elevation={1}>
+    <Box sx={{m:1}}>
+      <TabContext value={value} >
+        <AppBar color="primary" position="static" elevation={10} >
           <TabList
           textColor="inherit"
           onChange={(e: any, newValue: string) => {

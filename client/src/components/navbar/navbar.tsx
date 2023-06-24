@@ -27,7 +27,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{width:'100%',borderBottom:'1px solid white'}}>
+    <AppBar position="static" sx={{width:'100%',m:1}}>
       <Container maxWidth="lg" >
         <Toolbar disableGutters >
           <Box sx={{ display: 'flex' }}>
@@ -40,7 +40,7 @@ function Navbar() {
                 // mr: 2,
                 // display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
-                // fontWeight: 100, 
+                fontWeight: 500, 
                 letterSpacing: '.01rem',
                 color: 'inherit',
                 textDecoration: 'none',

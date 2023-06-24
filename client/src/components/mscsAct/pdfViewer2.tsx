@@ -18,7 +18,7 @@ const defaultLayoutPluginInstance = defaultLayoutPlugin(
   return (
     <div     style={{
       border: '1px solid rgba(0, 0, 0, 0.3)',
-      maxHeight: '710px',
+      maxHeight: '660px',
       overflow:'auto'
   }}>
     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.7.107/build/pdf.worker.min.js">

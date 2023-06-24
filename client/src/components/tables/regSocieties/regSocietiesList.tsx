@@ -37,8 +37,8 @@ const RegSocietiesList = () => {
 	}, [calcTotal]);
 
   return (
-		<Paper sx={{ width: '50%', overflow: 'hidden' }}>
-      <TableContainer component={Paper} sx={{ maxHeight: 800 }}>
+		<Paper sx={{ width: '50%', overflow: 'hidden',m:-2}}>
+      <TableContainer component={Paper} sx={{ maxHeight: 770 }}>
         <Table sx={{ width: '100%' }} stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>

@@ -27,7 +27,7 @@ export default function Header() {
 
 	return (
 		<React.Fragment>
-			<Box>
+			<Box sx={{m:-2}}>
 				<TabContext value={value}>
 					<AppBar color="primary" position="static" elevation={1}>
 						<TabList

@@ -51,7 +51,7 @@ const MscsActWrapper = () => {
     setValue(newValue);
   };
   return (
-    <Paper sx={{ width: '80%', height: '100%' }}>
+    <Paper sx={{ width: '80%', height: '100%', m:-2}}>
       <Box sx={{ bgcolor: 'background.paper' }}>
         <AppBar position="static" sx={{ width: '100%' }}>
           <Tabs

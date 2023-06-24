@@ -13,8 +13,8 @@ const SignInSide = (props:any) => {
 	const [value, setValue] = React.useState("1");
   
 	return (
-		<div style={{ display: "flex", width:'' }}>
-			<Box sx={{maxWidth:1000, zindex:-1}}>
+		<div style={{ display: "flex", width:'100%' }}>
+			<Box sx={{maxWidth:"80%", zindex:-1}}>
 				<img src={mscs_logo} width="100%" alt={"CRCS Logo"} />
 			</Box>
 			<Grid

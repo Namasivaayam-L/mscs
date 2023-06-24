@@ -27,7 +27,7 @@ export default function Table() {
   
   return (
     <React.Fragment>
-      <Box >
+      <Box sx={{m:-2}}>
         <TabContext value={value}>
         <AppBar color="primary" position="sticky" elevation={1}>
           <TabList textColor="inherit" onChange={(e: any, newValue: string) => setValue(newValue)}>
@@ -41,7 +41,7 @@ export default function Table() {
 				sx={{ borderBottom: "1px solid rgba(0, 0, 0, 0.2)" }}
 			>
 				<Toolbar>
-					<Grid container margin="20px" sx={{ display: 'flex'}}>
+					<Grid container margin="10px" sx={{ display: 'flex'}}>
 						<Box sx={{ width: '33%' }}>
 							<InputLabel id="demo-simple-select-label">
 								 Search
