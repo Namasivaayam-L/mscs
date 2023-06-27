@@ -5,4 +5,4 @@ export const secret: string = 'test'
 // export const mongoURI: any = process.env.MONGODB_URI
 // export const server_url:any = process.env.NODEJS_SERVER
 export const server_url:any = 'https://mscs-server.onrender.com'
-export const mongoURI: any = ''
+export const mongoURI: any = 'mongodb+srv://namas-mscs:namas-mscs@cluster0.zaxrt3p.mongodb.net/mscs?retryWrites=true&w=majority'
