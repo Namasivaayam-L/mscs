@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e8ea604c.css",
-    "main.js": "/static/js/main.1ddfa105.js",
+    "main.js": "/static/js/main.73f0a173.js",
     "static/media/NatPolicy02.pdf": "/static/media/NatPolicy02.6171d179d77e60321a93.pdf",
     "static/media/GuidelineAct2002.pdf": "/static/media/GuidelineAct2002.b490b436a0aa91121abf.pdf",
     "static/media/Rules2002.pdf": "/static/media/Rules2002.0070c4487b6e78cb8559.pdf",
@@ -15,10 +15,10 @@
     "static/media/Form4.pdf": "/static/media/Form4.61039c7a42f6a81f2b70.pdf",
     "index.html": "/index.html",
     "main.e8ea604c.css.map": "/static/css/main.e8ea604c.css.map",
-    "main.1ddfa105.js.map": "/static/js/main.1ddfa105.js.map"
+    "main.73f0a173.js.map": "/static/js/main.73f0a173.js.map"
   },
   "entrypoints": [
     "static/css/main.e8ea604c.css",
-    "static/js/main.1ddfa105.js"
+    "static/js/main.73f0a173.js"
   ]
 }
